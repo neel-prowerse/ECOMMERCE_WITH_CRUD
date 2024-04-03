@@ -4,13 +4,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('',views.index),
-    path('mobile',views.mobile),
-    path('show',views.show),
-    path('edit',views.edit),
-    path('update/<int:mid>',views.update),
-    path('delete/<int:mid>',views.delete),
-    path('register/',views.register),
-    path('login/',views.login),
-    path('logout/',views.logout), 
-]+ static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+    path('',views.index,name= 'index'),
+    path('add/',views.add, name='add'),
+    path('show/',views.show,name="show"),
+    path('showid/<int:id>',views.showid,name="showid"),
+    path('edit/<int:id>',views.edit,name="edit"),
+    path('update/<int:id>',views.update,name="update"),
+    path('delete/<int:id>',views.delete,name="delete"),
+    path('register/',views.register,name="register"),
+    path('login/',views.loginaccount,name="loginaccount"),
+    path('logout/',views.logoutaccount,name="logoutaccount"), 
+] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
